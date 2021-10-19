@@ -1,9 +1,11 @@
 <div class="wrapper d-flex align-items-stretch border-right">
     <nav id="sidebar">
         <div class="p-4 pt-0">
-          <a href="#" class="img  mb-5">
+          <a href="#" class="img mb-5">
               <img src="assets/images/logoAT1.png" alt="">
           </a>
+        </div>
+        <div class="p-4 pt-0">
     <ul class="list-unstyled components mb-5">
         <li>
             <a href="#">Dashboard</a>
