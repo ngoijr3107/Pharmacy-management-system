@@ -10,10 +10,9 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
 </head>
-<body>
-    @include('includes.sidebar')    
-    <div id="content" class="p-4 p-md-5">
-        @include('includes.navbar')
+<body>  
+   
+       
 
       <script src="{{asset("assets/js/jquery.min.js")}}"></script>
       <script src="{{asset("assets/js/popper.js")}}"></script>
@@ -21,3 +20,4 @@
       <script src="{{asset("assets/js/main.js")}}"></script>
 </body>
 </html>
+@yield('content')
