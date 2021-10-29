@@ -9,7 +9,7 @@
     <ul class="list-unstyled components mb-5">
         <li>
           
-          <a href="{{url('dashboard')}}"><i class="fas fa-home"></i>  Dashboard</a>
+          <a href="{{url('/')}}"><i class="fas fa-home"></i>  Dashboard</a>
         </li>
       <li>
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
