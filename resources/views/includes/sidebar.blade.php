@@ -1,7 +1,7 @@
 <div class="wrapper d-flex align-items-stretch border-right">
     <nav id="sidebar">
         <div class="p-4 pt-0">
-          <a href="#" class="img mb-5">
+          <a href="{{ url('/') }}" class="img mb-5">
               <img src="assets/images/logoAT1.png" alt="">
           </a>
         </div>
@@ -11,48 +11,27 @@
           
           <a href="{{url('/')}}"><i class="fas fa-home"></i>  Dashboard</a>
         </li>
-      <li>
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fas fa-square"></i>  Cartegories</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
         <li>
-            <a href="#">Add Cartegory</a>
+          
+          <a href="{{url('/category') }}"><i class="fas fa-square"></i>  Cartegory</a>
         </li>
-        <li>
-            <a href="#">All Cartegories</a>
-        </li>
-        </ul>
-      </li>
-      
-      <li>
-        <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fas fa-square"></i>  Candidates</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu1">
-        <li>
-            <a href="#">Add Candidates</a>
-        </li>
-        <li>
-            <a href="#">All Candidates</a>
-        </li>
-        </ul>
-      </li>
 
       <li>
-        <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fas fa-square"></i>  Voters</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu2">
-        <li>
-            <a href="#">Add Voters</a>
-        </li>
-        <li>
-            <a href="#">All Voters</a>
-        </li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="#"><i class="fas fa-square"></i>  Votes</a>
+        <a href="{{ url('/medicine') }}"><i class="fas fa-square"></i>  Medicine</a>
     </li>
+    <li>
+        <a href="#"><i class="fas fa-square"></i>  Sales</a>
+    </li>
+    <li>
+        <a href="#"><i class="fas fa-square"></i>  Expenses</a>
+    </li>
+    <li>
+        <a href="#"><i class="fas fa-square"></i>  Reporting</a>
+    </li>
+    <li>
+        <a href="#"><i class="fas fa-square"></i>  Staff</a>
+    </li>
+
 
       
       <li>
