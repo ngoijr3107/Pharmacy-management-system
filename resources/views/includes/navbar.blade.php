@@ -13,7 +13,7 @@
         <ul class="nav navbar-nav ml-auto">
           
           <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <a class="nav-link" href="#"><strong>Admin</strong></a>
           </li>
         </ul>
       </div>
