@@ -10,8 +10,8 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $category = Category::get();
-        return view('category.index')->with($category);
+        $category = Category::all();
+        return view('category.index')->with('categories',$category);
     }
 
     
@@ -30,7 +30,7 @@ class CategoryController extends Controller
             
              ]);
             
-             Category::create($request->all());
+             $category = Category::create($request->all());
              $category -> save();
             
              return redirect('/category')->with('success','Category has been added');
@@ -51,7 +51,18 @@ class CategoryController extends Controller
   
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category_name' => 'required',
+            'description' => 'required'
+    ]);
+
+    $category = Category::find($id);
+    $category->category_name = $request->get('category_name');
+    $category->description = $request->get('description');
+    $category->save();
+
+    return redirect()->route('category.index')
+              ->with('success', 'updated successfully');
     }
 
     
