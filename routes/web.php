@@ -27,6 +27,8 @@ Route::get('/medicine', function(){
 });
 
 Route::get('/category', [CategoryController::class, 'index']);
+Route::post('category/create', [CategoryController::class, 'store']);
+Route::put('category/edit', [CategoryController::class, 'update']);
 
 Route::get('/user', [UserController::class, 'index']);
 
