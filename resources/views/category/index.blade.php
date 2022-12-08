@@ -15,12 +15,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($category as $categories)
+            @foreach ($categories as $category)
             <tr>
                 <td>{{ $category->category_name }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
-                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editModal">Edit</button>
                     <button class="btn btn-sm btn-danger">Delete</button>
                 </td>
             </tr>
@@ -40,20 +40,19 @@
           </button>
         </div>
         <div class="modal-body">
-            <form>
+            <form method="POST" action="{{ url('category/create') }}">
+              @csrf
                 <div class="form-group">
                   <label for="category_name">Name</label>
-                  <input type="text" class="form-control" id="category_name" placeholder="Enter category name">
+                  <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter category name">
                 </div>
                 <div class="form-group">
                   <label for="description">Description</label>
-                  <input type="text" class="form-control" id="description" placeholder="Enter category description">
+                  <input type="text" class="form-control" name="description" id="description" placeholder="Enter category description">
                 </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info">Save</button>
               </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-info">Save</button>
         </div>
       </div>
     </div>
@@ -71,20 +70,20 @@
               </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="POST" action="{{ url('category/edit') }}">
+                  @csrf
+                  @method('PUT')
                     <div class="form-group">
                       <label for="category_name">Name</label>
-                      <input type="text" class="form-control" id="category_name" placeholder="Enter category name">
+                      <input type="text" class="form-control" name="category_name" id="category_name" value="{{$category->category_name}}" placeholder="Enter category name">
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
-                      <input type="text" class="form-control" id="description" placeholder="Enter category description">
+                      <input type="text" class="form-control" name="description" id="description" value="{{$category->description}}" placeholder="Enter category description">
                     </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info">Save</button>
                   </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-info">Save</button>
             </div>
           </div>
         </div>
