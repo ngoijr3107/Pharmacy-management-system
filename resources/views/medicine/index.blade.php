@@ -5,7 +5,7 @@
  @section('content')
  <div class="container">
    <div class="row">
-    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#createModal">Add category</button>
+    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#createModal">Add medicine</button>
     <table class="table table-bordered table-responsive">
         <thead>
             <tr>
