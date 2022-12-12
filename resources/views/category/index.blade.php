@@ -74,11 +74,11 @@
                   @method('PUT')
                     <div class="form-group">
                       <label for="category_name">Name</label>
-                      <input type="text" class="form-control" name="category_name" value="{{$category->category_name}}" id="category_name" placeholder="Enter category name">
+                      <input type="text" class="form-control" name="category_name" value="" id="category_name" placeholder="Enter category name">
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
-                      <input type="text" class="form-control" name="description" value="{{$category->description}}" id="description" placeholder="Enter category description">
+                      <input type="text" class="form-control" name="description" value="" id="description" placeholder="Enter category description">
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-info">Save</button>
