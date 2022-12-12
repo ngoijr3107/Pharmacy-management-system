@@ -32,7 +32,7 @@ Route::post('category/create', [CategoryController::class, 'store']);
 Route::put('category/edit', [CategoryController::class, 'update']);
 
 Route::get('/medicine', [MedicineController::class, 'index']);
-Route::post('medicine/create',[MedicineController::class, 'create']);
+Route::post('medicine/create',[MedicineController::class, 'store']);
 Route::put('medicine',[MedicineController::class, 'update']);
 
 Route::get('/user', [UserController::class, 'index']);
