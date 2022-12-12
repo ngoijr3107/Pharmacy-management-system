@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MedicineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,10 @@ Route::get('/medicine', function(){
 Route::get('/category', [CategoryController::class, 'index']);
 Route::post('category/create', [CategoryController::class, 'store']);
 Route::put('category/edit', [CategoryController::class, 'update']);
+
+Route::get('/medicine', [MedicineController::class, 'index']);
+Route::post('medicine/create',[MedicineController::class, 'create']);
+Route::put('medicine',[MedicineController::class, 'update']);
 
 Route::get('/user', [UserController::class, 'index']);
 
