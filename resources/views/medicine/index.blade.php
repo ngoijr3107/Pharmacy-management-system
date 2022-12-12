@@ -23,22 +23,24 @@
             </tr>
         </thead>
         <tbody>
+          @foreach ($medicines as $medicine)
             <tr>
-                <td>Syrup</td>
-                <td>Chidren drug</td>
-                <td>Syrup</td>
-                <td>Chidren drug</td>
-                <td>Syrup</td>
-                <td>Chidren drug</td>
-                <td>Syrup</td>
-                <td>Chidren drug</td>
-                <td>Syrup</td>
-                <td>Chidren drug</td>
+                <td>{{ $medicine->name }}</td>
+                <td>{{ $medicine->category }}</td>
+                <td>{{ $medicine->store_box }}</td>
+                <td>{{ $medicine->purchase_price }}</td>
+                <td>{{ $medicine->sell_price }}</td>
+                <td>{{ $medicine->qty }}</td>
+                <td>{{ $medicine->generic_name }}</td>
+                <td>{{ $medicine->company }}</td>
+                <td>{{ $medicine->effects }}</td>
+                <td>{{ $medicine->expiry_date }}</td>
                 <td>
-                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editModal">Edit</button>
                     <button class="btn btn-sm btn-danger">Delete</button>
                 </td>
-            </tr>
+            </tr>                  
+          @endforeach
         </tbody>
     </table>
 
@@ -54,20 +56,51 @@
           </button>
         </div>
         <div class="modal-body">
-            <form>
+            <form method="POST" action="{{ url('medicine/create') }}">
+              @csrf
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+              </div>
                 <div class="form-group">
-                  <label for="category_name">Name</label>
-                  <input type="text" class="form-control" id="category_name" placeholder="Enter category name">
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" name="category" id="category" placeholder="Category name">
                 </div>
                 <div class="form-group">
-                  <label for="description">Description</label>
-                  <input type="text" class="form-control" id="description" placeholder="Enter category description">
+                  <label for="store_box">Store Box</label>
+                  <input type="text" class="form-control" name="store_box" id="store_box" placeholder="Store Box">
                 </div>
+                <div class="form-group">
+                  <label for="purchase_price">Purchase price</label>
+                  <input type="text" class="form-control" name="purchase_price" id="purchase_price" placeholder="Purchase price">
+                </div>
+                <div class="form-group">
+                  <label for="sell_price">Selling Price</label>
+                  <input type="text" class="form-control" name="sell_price" id="sell_price" placeholder="Selling price">
+                </div>
+                <div class="form-group">
+                  <label for="qty">Quantity</label>
+                  <input type="text" class="form-control" name="qty" id="qty" placeholder="Quantity">
+                </div>
+                <div class="form-group">
+                  <label for="generic_name">Generic name</label>
+                  <input type="text" class="form-control" name="generic_name" id="generic_name" placeholder="Generic name">
+                </div>
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <input type="text" class="form-control" name="company" id="company" placeholder="company">
+                </div>
+                <div class="form-group">
+                  <label for="effects">Effects</label>
+                  <input type="text" class="form-control" name="effects" id="effects" placeholder="Effects">
+                </div>
+                <div class="form-group">
+                  <label for="expiry_date">Expiry date</label>
+                  <input type="text" class="form-control" name="expiry_date" id="expiry_date" placeholder="Expiry date">
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info">Save</button>
               </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-info">Save</button>
         </div>
       </div>
     </div>
@@ -94,11 +127,9 @@
                       <label for="description">Description</label>
                       <input type="text" class="form-control" id="description" placeholder="Enter category description">
                     </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info">Save</button>
                   </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-info">Save</button>
             </div>
           </div>
         </div>
