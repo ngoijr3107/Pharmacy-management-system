@@ -1,11 +1,12 @@
 <div class="wrapper d-flex align-items-stretch border-right">
     <nav id="sidebar">
-        <div class="p-4 pt-0">
-          <a href="{{ url('/') }}" class="img mb-5">
-              <img src="assets/images/logoAT1.png" alt="">
+        <div class="p-4">
+          <a href="{{ url('/') }}" class="img mb-0">
+              <img src="assets/images/logo_techvilla.png" alt="">
           </a>
         </div>
-        <div class="p-4 pt-0">
+        <hr>
+    <div class="p-4 pt-0">
     <ul class="list-unstyled components mb-5">
         <li>
           
