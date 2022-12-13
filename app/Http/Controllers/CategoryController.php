@@ -24,10 +24,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-
             'category_name' => 'required',
             'description' => 'required',
-            
              ]);
             
              $category = Category::create($request->all());
@@ -45,7 +43,9 @@ class CategoryController extends Controller
    
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('category.index')->with('categories',$category);
     }
 
   
@@ -57,17 +57,17 @@ class CategoryController extends Controller
     ]);
 
     $category = Category::find($id);
-    $category->category_name = $request->get('category_name');
-    $category->description = $request->get('description');
+    $category = Category::update($request->all());
     $category->save();
 
     return redirect()->route('category.index')
-              ->with('success', 'updated successfully');
+              ->with('success', 'Cetegory updated successfully');
     }
 
     
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
     }
 }
