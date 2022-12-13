@@ -15,8 +15,8 @@ class CreateMedicinesTable extends Migration
     {
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->unsigned()->references('id')->on('categories')->onDelete('cascade');
             $table->string('name');
-            $table->string('category');
             $table->string('store_box');
             $table->string('purchase_price');
             $table->string('sell_price');
@@ -26,6 +26,7 @@ class CreateMedicinesTable extends Migration
             $table->string('effects');
             $table->string('expiry_date');
             $table->timestamps();
+            // $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
