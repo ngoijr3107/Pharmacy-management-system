@@ -29,7 +29,9 @@ Route::get('/medicine', function(){
 
 Route::get('/category', [CategoryController::class, 'index']);
 Route::post('category/create', [CategoryController::class, 'store']);
-Route::put('category/edit', [CategoryController::class, 'update']);
+Route::get('category/edit/{id}', [CategoryController::class, 'edit']);
+Route::patch('category/edit', [CategoryController::class, 'update']);
+Route::delete('category/{id}', [CategoryController::class, 'destroy']);
 
 Route::get('/medicine', [MedicineController::class, 'index']);
 Route::post('medicine/create',[MedicineController::class, 'store']);
