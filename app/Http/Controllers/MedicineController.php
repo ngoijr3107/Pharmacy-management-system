@@ -11,7 +11,6 @@ class MedicineController extends Controller
 
     public function index()
     {
-        // $category = Category::all();
         $medicine = Medicine::with('Category')->get();
         return view('medicine.index')
         ->with('medicines',$medicine)
@@ -56,7 +55,7 @@ class MedicineController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'category' => 'required',
+            'category_id' => 'required',
             'store_box' => 'required',
             'purchase_price' => 'required',
             'sell_price' => 'required',
@@ -69,7 +68,7 @@ class MedicineController extends Controller
         $medicine = Medicine::find($id);
         $medicine = Medicine::update($request->all());
         $medicine->save();
-        return view('medicine.index')->with('success', 'Medicine has been updated');
+        return redirect('/medicine')->with('success', 'Medicine has been updated');
     }
 
     public function destroy($id)
