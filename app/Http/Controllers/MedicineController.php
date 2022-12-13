@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Medicine;
+use App\Models\Category;
 
 class MedicineController extends Controller
 {
 
     public function index()
     {
-        $medicine = Medicine::all();
-        return view('medicine.index')->with('medicines',$medicine);
+        // $category = Category::all();
+        $medicine = Medicine::with('Category')->get();
+        return view('medicine.index')
+        ->with('medicines',$medicine)
+        ->with('categories');
     }
 
     public function create()
@@ -23,7 +27,7 @@ class MedicineController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'category' => 'required',
+            'category_id' => 'required',
             'store_box' => 'required',
             'purchase_price' => 'required',
             'sell_price' => 'required',
