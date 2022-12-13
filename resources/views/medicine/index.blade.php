@@ -9,8 +9,8 @@
     <table class="table table-bordered table-responsive">
         <thead>
             <tr>
-                <th>Name</th>
                 <th>Category</th>
+                <th>Name</th>
                 <th>Store Box</th>
                 <th>Purchase price</th>
                 <th>Selling price</th>
@@ -25,8 +25,8 @@
         <tbody>
           @foreach ($medicines as $medicine)
             <tr>
+                <td>{{ $medicine->category->category_name }}</td>
                 <td>{{ $medicine->name }}</td>
-                <td>{{ $medicine->category }}</td>
                 <td>{{ $medicine->store_box }}</td>
                 <td>{{ $medicine->purchase_price }}</td>
                 <td>{{ $medicine->sell_price }}</td>
@@ -59,44 +59,41 @@
             <form method="POST" action="{{ url('medicine/create') }}">
               @csrf
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="category_id">Category <span class="text-danger">*</span></label>
+                <select class="form-control" name="category_id" id="category_id" required>
+                    <option value="" selected disabled>Select Category</option>
+                    @foreach(\App\Models\Category::all() as $category)
+                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+              <div class="form-group">
                 <input type="text" class="form-control" name="name" id="name" placeholder="Name">
               </div>
                 <div class="form-group">
-                  <label for="category">Category</label>
-                  <input type="text" class="form-control" name="category" id="category" placeholder="Category name">
-                </div>
-                <div class="form-group">
-                  <label for="store_box">Store Box</label>
                   <input type="text" class="form-control" name="store_box" id="store_box" placeholder="Store Box">
                 </div>
                 <div class="form-group">
-                  <label for="purchase_price">Purchase price</label>
                   <input type="text" class="form-control" name="purchase_price" id="purchase_price" placeholder="Purchase price">
                 </div>
                 <div class="form-group">
-                  <label for="sell_price">Selling Price</label>
                   <input type="text" class="form-control" name="sell_price" id="sell_price" placeholder="Selling price">
                 </div>
                 <div class="form-group">
-                  <label for="qty">Quantity</label>
                   <input type="text" class="form-control" name="qty" id="qty" placeholder="Quantity">
                 </div>
                 <div class="form-group">
-                  <label for="generic_name">Generic name</label>
                   <input type="text" class="form-control" name="generic_name" id="generic_name" placeholder="Generic name">
                 </div>
                 <div class="form-group">
-                  <label for="company">Company</label>
                   <input type="text" class="form-control" name="company" id="company" placeholder="company">
                 </div>
                 <div class="form-group">
-                  <label for="effects">Effects</label>
                   <input type="text" class="form-control" name="effects" id="effects" placeholder="Effects">
                 </div>
                 <div class="form-group">
-                  <label for="expiry_date">Expiry date</label>
-                  <input type="text" class="form-control" name="expiry_date" id="expiry_date" placeholder="Expiry date">
+                  <label for="expiry_date">Expire Date</label>
+                  <input type="date" class="form-control" name="expiry_date" id="expiry_date" placeholder="Expiry date">
                 </div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-info">Save</button>
