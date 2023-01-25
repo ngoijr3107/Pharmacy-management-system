@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
  */
 // Routes defined
 Route::get('/', function () {
-    return view('pages.dashboard');
+    return view('auth.login');
 });
 Route::get('/category', function(){
     return view('category.index');
@@ -40,3 +40,10 @@ Route::put('medicine',[MedicineController::class, 'update']);
 Route::get('/user', [UserController::class, 'index']);
 
 // Route::get('/dashboard', [PagesController::class, 'dashboard']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
