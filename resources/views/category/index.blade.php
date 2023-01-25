@@ -20,8 +20,9 @@
                                 <td>{{ $category->category_name }}</td>
                                 <td>{{ $category->description }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary editbtn" data-toggle="modal" data-target="#editModal"
-                                        data-id="{{ $category->id }}" data-category_name="{{ $category->category_name }}"
+                                    <button class="btn btn-sm btn-primary editbtn" data-toggle="modal"
+                                        data-target="#editModal" data-id="{{ $category->id }}"
+                                        data-category_name="{{ $category->category_name }}"
                                         data-description="{{ $category->description }}"
                                         onclick="editModal(this)">Edit</button>
                                     <button class="btn btn-sm btn-danger">Delete</button>
@@ -76,20 +77,18 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form method="POST" action="{{ url('category/edit', $category->id) }}">
+                                <form method="POST" action="{{ url('category/edit') }}">
                                     @csrf
                                     @method('patch')
                                     <div class="form-group">
                                         <label for="category_name">Name</label>
                                         <input type="text" class="form-control category_name" name="category_name"
-                                            value="{{ $category->category_name }}" id="category_name"
-                                            placeholder="Enter category name">
+                                            value="" id="category_name" placeholder="Enter category name">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
                                         <input type="text" class="form-control description" name="description"
-                                            value="{{ $category->description }}" id="description"
-                                            placeholder="Enter category description">
+                                            value="" id="description" placeholder="Enter category description">
                                     </div>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-info">Save</button>
