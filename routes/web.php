@@ -26,6 +26,7 @@ Route::get('/', function(){
 
 Route::group(['middleware' => 'auth'], function () {
 
+            // Dashboard Routes
             Route::get('/category', function(){
                 return view('category.index');
             });
