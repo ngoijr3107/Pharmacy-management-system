@@ -16,7 +16,7 @@
                             class="fas fa-square"></i> Medicine</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="{{ url('/category') }}">Medicine category</a>
+                            <a href="{{ url('/category') }}">Category</a>
                         </li>
                         <li>
                             <a href="{{ url('/medicine') }}">Medicine</a>
@@ -32,7 +32,7 @@
                             class="fas fa-square"></i> Expenses</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            <a href="{{ url('#') }}"> Expense Category</a>
+                            <a href="{{ url('#') }}"> Category</a>
                         </li>
                         <li>
                             <a href="{{ url('#') }}"> All expenses</a>
