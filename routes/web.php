@@ -34,6 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
                 return view('medicine.index');
             });
 
+            Route::get('/profile', function(){
+                return view('profile.user_profile');
+            });
+
             // Category Routes
             Route::get('/category', [CategoryController::class, 'index']);
             Route::post('category/create', [CategoryController::class, 'store']);
