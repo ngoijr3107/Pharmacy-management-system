@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="">Stock count</h5>
-                            <small class="text-right">15</small>
+                            <small class="text-right">{{ $stock_count }}</small>
                         </div>
                     </div>
                 </div>
