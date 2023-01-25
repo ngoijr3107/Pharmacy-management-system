@@ -10,7 +10,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $category = Category::all();
+        $category = Category::latest()->get();
         return view('category.index')->with('categories',$category);
     }
 
