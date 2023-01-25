@@ -1,7 +1,7 @@
 <div class="wrapper d-flex align-items-stretch border-right">
     <nav id="sidebar">
         <div class="p-4">
-            <a href="{{ url('/') }}" class="img mb-0">
+            <a href="{{ url('/home') }}" class="img mb-0">
                 <img src="assets/images/logo_techvilla.png" alt="">
             </a>
         </div>
