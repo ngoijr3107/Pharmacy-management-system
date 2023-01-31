@@ -37,7 +37,7 @@
                                 <td>{{ $medicine->effects }}</td>
                                 <td>{{ $medicine->expiry_date }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-info" data-toggle="modal"
+                                    <button class="btn btn-sm btn-primary" data-toggle="modal"
                                         data-target="#editModal">Edit</button>
                                     <button class="btn btn-sm btn-danger">Delete</button>
                                 </td>
