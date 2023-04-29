@@ -14,7 +14,7 @@
 
 ## Usage
 
-1. clone the project `git clone https://github.com/abdulbasit-dev/laravel-windmill-dashboard.git`
+1. clone the project `git clone https://github.com/ngoijr3107/Pharmacy-management-system.git`
 2. create a file with name .env `touch .env`
 3. copy content of .env.example to .env
 4. set up your database connection in .env
@@ -22,6 +22,7 @@
 6. generate app key `php artisan key:generate`
 7. run `php artisan migrate --seed` (note --seed will fill the database with dummy data)
 8.  your are good to go 😊
+9. You can login using <b>username:</b> admin@test.com, <b>password:</b> password
 
 ---
 
