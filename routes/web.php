@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MedicineController;
 use Illuminate\Support\Facades\Route;
@@ -15,45 +14,41 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
- */
-// Routes defined
-Auth::routes([
-    'register' => false,
-]);
-Route::get('/', function(){
-    return view('auth.login');
+*/
+
+Route::view('/', 'welcome');
+
+
+//dashboard routes
+Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.'], function () {
+    //single action controllers
+    Route::get('/', HomeController::class)->name('home');
+
+    //Category routes...
+    Route::get('/category', [CategoryController::class, 'index'])->name('category');
+    Route::get('/CreateCategory', [CategoryController::class, 'create'])->name('CreateCategory');
+    Route::post('/category', [CategoryController::class, 'store'])->name('category');
+
+    //medicine routes
+    Route::get('/medicine', [MedicineController::class, 'index'])->name('medicine');
+    Route::get('/CreateMedicine', [MedicineController::class, 'create'])->name('CreateMedicine');
+    Route::post('/medicine', [MedicineController::class, 'store'])->name('medicine');
+
+    Route::view('/buttons', 'admin.buttons')->name('buttons');
+    Route::view('/cards', 'admin.cards')->name('cards');
+    Route::view('/charts', 'admin.charts')->name('charts');
+    Route::view('/forms', 'admin.forms')->name('forms');
+    Route::view('/modals', 'admin.modals')->name('modals');
+    Route::view('/tables', 'admin.tables')->name('tables');
+
+    Route::group(['prefix' => 'pages', 'as' => 'page.'], function () {
+        Route::view('/404-page', 'admin.pages.404')->name('404');
+        Route::view('/blank-page', 'admin.pages.blank')->name('blank');
+        Route::view('/create-account-page', 'admin.pages.create-account')->name('create-account');
+        Route::view('/forgot-password-page', 'admin.pages.forgot-password')->name('forgot-password');
+        Route::view('/login-page', 'admin.pages.login')->name('login');
+    });
 });
 
-Route::group(['middleware' => 'auth'], function () {
 
-            // Navigation Routes
-            Route::get('/category', function(){
-                return view('category.index');
-            });
-            Route::get('/medicine', function(){
-                return view('medicine.index');
-            });
-
-            Route::get('/profile', function(){
-                return view('profile.user_profile');
-            });
-
-            // Category Routes
-            Route::get('/category', [CategoryController::class, 'index']);
-            Route::post('category/create', [CategoryController::class, 'store']);
-            Route::get('category/edit/{id}', [CategoryController::class, 'edit']);
-            Route::patch('category/edit', [CategoryController::class, 'update']);
-            Route::delete('category/{id}', [CategoryController::class, 'destroy']);
-
-            Route::get('/medicine', [MedicineController::class, 'index']);
-            Route::post('medicine/create',[MedicineController::class, 'store']);
-            Route::put('medicine',[MedicineController::class, 'update']);
-
-            Route::get('/user', [UserController::class, 'index']);
-
-            // Route::get('/dashboard', [PagesController::class, 'dashboard']);
-            
-
-            Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-});
+require __DIR__ . '/auth.php';

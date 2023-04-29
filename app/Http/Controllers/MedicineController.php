@@ -11,15 +11,15 @@ class MedicineController extends Controller
 
     public function index()
     {
-        $medicine = Medicine::with('Category')->get();
-        return view('medicine.index')
+        $medicine = Medicine::with('Category')->latest()->paginate(10);
+        return view('admin.medicine')
         ->with('medicines',$medicine)
         ->with('categories');
     }
 
     public function create()
     {
-        
+        return view('admin.medicine_create');
     }
 
     public function store(Request $request)
@@ -38,12 +38,12 @@ class MedicineController extends Controller
         ]);
         $medicine = Medicine::create($request->all());
         $medicine->save();
-        return redirect('/medicine')->with('success', 'Medicine has been added');
+        return redirect('/dashboard/medicine')->with('success', 'Medicine has been added');
     }
 
     public function show($id)
     {
-        
+
     }
 
     public function edit($id)
