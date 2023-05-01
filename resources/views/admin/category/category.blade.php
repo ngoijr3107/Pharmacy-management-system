@@ -5,8 +5,7 @@
             Categories
         </h2>
         <div>
-            <button
-                onclick="window.location='{{ route('admin.CreateCategory') }}'"
+            <button onclick="window.location='{{ route('admin.CreateCategory') }}'"
                 class="btn btn-primary px-3 mb-2 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                 Add category
             </button>
@@ -40,10 +39,13 @@
                                             aria-label="Edit">
                                             <i class="fa fa-pen"></i>
                                         </button>
-                                        <form method="POST" action="{{ route('admin.CategoryDelete', ['id' => $category->id]) }}">
+                                        <form method="POST"
+                                            action="{{ route('admin.CategoryDelete', ['id' => $category->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-red-600 rounded-lg dark:text-red-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
+                                            <button type="submit"
+                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-red-600 rounded-lg dark:text-red-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
