@@ -26,12 +26,12 @@ class CategoryController extends Controller
         $request->validate([
             'category_name' => 'required',
             'description' => 'required',
-             ]);
+        ]);
 
-             $category = Category::create($request->all());
-             $category -> save();
+        $category = Category::create($request->all());
+        $category->save();
 
-             return redirect('/dashboard/category')->with('success','Category has been added');
+        return redirect('/dashboard/category')->with('success', 'Category has been added');
     }
 
 
@@ -43,9 +43,8 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $category = Category::find($id);
-
-        return view('admin.category')->with('categories',$category);
+        $category = Category::findOrFail($id);
+        return view('admin.category.category_edit', ['category' => $category]);
     }
 
 
@@ -54,20 +53,25 @@ class CategoryController extends Controller
         $request->validate([
             'category_name' => 'required',
             'description' => 'required'
-    ]);
+        ]);
 
-    $category = Category::find($id);
-    $category = Category::update($request->all());
-    $category->save();
+        $category = Category::findOrFail($id);
+        $category->fill($request->all());
+        $category->save();
 
-    return redirect()->route('admin.category')
-              ->with('success', 'Cetegory updated successfully');
+        return redirect()->route('admin.category')
+            ->with('success', 'Category updated successfully');
     }
+
 
 
     public function destroy($id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         $category->delete();
+
+        return redirect()->route('admin.category')
+            ->with('success', 'Category deleted successfully');
     }
+
 }
