@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "maatwebsite/excel": "*",
+        "realrashid/sweet-alert": "^7.0",
         "yajra/laravel-datatables-oracle": "*"
     },
     "require-dev": {
