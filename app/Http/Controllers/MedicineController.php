@@ -45,9 +45,12 @@ class MedicineController extends Controller
     }
 
     public function edit($id)
-    {
-        //
-    }
+{
+    $medicine = Medicine::findOrFail($id);
+    $categories = Category::all(); // if you want to retrieve all categories
+    return view('admin.medicines.medicine_edit', compact('medicine', 'categories'));
+}
+
 
     public function update(Request $request, $id)
     {
@@ -63,14 +66,18 @@ class MedicineController extends Controller
             'effects' => 'required',
             'expiry_date' => 'required',
         ]);
-        $medicine = Medicine::find($id);
-        $medicine = Medicine::update($request->all());
+
+        $medicine = Medicine::findOrFail($id);
+        $medicine->fill($request->all());
         $medicine->save();
-        return redirect('/dashboard/medicine')->with('success', 'Medicine has been updated');
+        return redirect('/dashboard/medicine')->with('success', 'Medicine has been updated successfully!');
     }
 
     public function destroy($id)
     {
-        //
+        $medicine = Medicine::findOrFail($id);
+        $medicine->delete();
+
+        return redirect('/dashboard/medicine')->with('success', 'Medicine has been deleted successfully!');
     }
 }
