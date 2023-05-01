@@ -9,11 +9,12 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        {{-- <script src="https://kit.fontawesome.com/e5f26e6179.js" crossorigin="anonymous"></script> --}}
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
+        <script src="https://kit.fontawesome.com/e5f26e6179.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
