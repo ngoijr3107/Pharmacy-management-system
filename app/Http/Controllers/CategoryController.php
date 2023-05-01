@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CategoryController extends Controller
 {
@@ -31,6 +33,7 @@ class CategoryController extends Controller
         $category = Category::create($request->all());
         $category->save();
 
+        Alert::success('Success', 'Category has been added!');
         return redirect('/dashboard/category')->with('success', 'Category has been added');
     }
 
