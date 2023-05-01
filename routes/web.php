@@ -28,11 +28,17 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.
     Route::get('/category', [CategoryController::class, 'index'])->name('category');
     Route::get('/CreateCategory', [CategoryController::class, 'create'])->name('CreateCategory');
     Route::post('/category', [CategoryController::class, 'store'])->name('category');
+    Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('EditCategory');
+    Route::put('/CategoryUpdate/{category}', [CategoryController::class, 'update'])->name('CategoryUpdate');
+    Route::delete('/CategoryDelete/{id}', [CategoryController::class, 'destroy'])->name('CategoryDelete');
 
     //medicine routes
     Route::get('/medicine', [MedicineController::class, 'index'])->name('medicine');
     Route::get('/CreateMedicine', [MedicineController::class, 'create'])->name('CreateMedicine');
     Route::post('/medicine', [MedicineController::class, 'store'])->name('medicine');
+    Route::get('medicine/{id}/edit', [MedicineController::class, 'edit'])->name('EditMedicine');
+    Route::put('UpdateMedicine/{medicine}', [MedicineController::class, 'update'])->name('UpdateMedicine');
+    Route::delete('medicine/{id}', [MedicineController::class, 'destroy'])->name('DeleteMedicine');
 
     Route::view('/buttons', 'admin.buttons')->name('buttons');
     Route::view('/cards', 'admin.cards')->name('cards');
