@@ -14,10 +14,12 @@
                             <span class="text-gray-700 dark:text-gray-400">
                                 Category
                             </span>
-                            <select name="category_id" id="category_id" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                            <select name="category_id" id="category_id"
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                                 <option value="" disabled>Select Category</option>
                                 @foreach (\App\Models\Category::all() as $category)
-                                    <option value="{{ $category->id }}" @if ($category->id == $medicine->category_id) selected @endif>{{ $category->category_name }}</option>
+                                    <option value="{{ $category->id }}" @if ($category->id == $medicine->category_id) selected @endif>
+                                        {{ $category->category_name }}</option>
                                 @endforeach
                             </select>
                         </label>
@@ -49,7 +51,8 @@
                             <span class="text-gray-700 dark:text-gray-400">Purchase price</span>
                             <input type="number"
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                name="purchase_price" value="{{ $medicine->purchase_price }}" placeholder="Purchase price..." />
+                                name="purchase_price" value="{{ $medicine->purchase_price }}"
+                                placeholder="Purchase price..." />
                         </label>
                     </div>
 
