@@ -34,7 +34,7 @@
                                 <td class="px-4 py-3 text-sm">{{ $supplier->phone }}</td>
                                 <td class="px-4 py-3 text-sm">{{ $supplier->email }}</td>
                                 <td class="px-4 py-3 text-sm">{{ $supplier->city }}</td>
-                                <td class="px-4 py-3 text-sm">{{ $supplier->county }}</td>
+                                <td class="px-4 py-3 text-sm">{{ $supplier->country }}</td>
                                 <td class="px-4 py-3 text-sm">{{ $supplier->address }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
