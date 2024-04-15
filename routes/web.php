@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.
     Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
     Route::get('/CreateSupplier', [SupplierController::class, 'create'])->name('CreateSupplier');
     Route::post('/supplier', [SupplierController::class, 'store'])->name('supplier');
-    Route::get('supplier/{id}/edit', [SupplierController::class, 'edit'])->name('EditMedicine');
+    Route::get('supplier/{id}/edit', [SupplierController::class, 'edit'])->name('EditSupplier');
     Route::put('UpdateSupplier/{supplier}', [SupplierController::class, 'update'])->name('UpdateSupplier');
     Route::delete('supplier/{id}', [SupplierController::class, 'destroy'])->name('DeleteSupplier');
 
