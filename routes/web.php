@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.
     Route::get('medicine/{id}/edit', [MedicineController::class, 'edit'])->name('EditMedicine');
     Route::put('UpdateMedicine/{medicine}', [MedicineController::class, 'update'])->name('UpdateMedicine');
     Route::delete('medicine/{id}', [MedicineController::class, 'destroy'])->name('DeleteMedicine');
+
+    //Supplier routes
+    Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
+    Route::get('/CreateSupplier', [SupplierController::class, 'create'])->name('CreateSupplier');
+    Route::post('/supplier', [SupplierController::class, 'store'])->name('supplier');
+    Route::get('supplier/{id}/edit', [SupplierController::class, 'edit'])->name('EditMedicine');
+    Route::put('UpdateSupplier/{supplier}', [SupplierController::class, 'update'])->name('UpdateSupplier');
+    Route::delete('supplier/{id}', [SupplierController::class, 'destroy'])->name('DeleteSupplier');
 
     Route::view('/buttons', 'admin.buttons')->name('buttons');
     Route::view('/cards', 'admin.cards')->name('cards');
