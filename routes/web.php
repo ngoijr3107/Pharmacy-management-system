@@ -58,12 +58,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.
     Route::put('UpdateCustomer/{customer}', [CustomerController::class, 'update'])->name('UpdateCustomer');
     Route::delete('customer/{id}', [CustomerController::class, 'destroy'])->name('DeleteCustomer');
 
-    Route::view('/buttons', 'admin.buttons')->name('buttons');
-    Route::view('/cards', 'admin.cards')->name('cards');
-    Route::view('/charts', 'admin.charts')->name('charts');
-    Route::view('/forms', 'admin.forms')->name('forms');
-    Route::view('/modals', 'admin.modals')->name('modals');
-    Route::view('/tables', 'admin.tables')->name('tables');
 
     Route::group(['prefix' => 'pages', 'as' => 'page.'], function () {
         Route::view('/404-page', 'admin.pages.404')->name('404');
