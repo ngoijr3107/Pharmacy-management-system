@@ -6,6 +6,11 @@
         </h2>
         <!-- CTA -->
 
+        @php
+            $product_count = App\Models\Medicine::count();
+            $customer_count = App\Models\Customer::count();
+        @endphp
+
         <!-- Cards -->
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
             <!-- Card -->
@@ -19,10 +24,10 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        Total clients
+                        Customers Count
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                        6389
+                        {{$customer_count}}
                     </p>
                 </div>
             </div>
@@ -37,7 +42,7 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        Account balance
+                       Total Sales
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         TZS 46,760.89
@@ -55,7 +60,7 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        New sales
+                        Orders Count
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         376
@@ -73,10 +78,10 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        Pending contacts
+                        Products Count
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                        35
+                        {{$product_count}}
                     </p>
                 </div>
             </div>
@@ -84,7 +89,7 @@
 
 
         <!-- Charts -->
-        <div class="grid gap-6 mb-8 md:grid-cols-2">
+        {{-- <div class="grid gap-6 mb-8 md:grid-cols-2">
             <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                 <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
                     Revenue
@@ -123,6 +128,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
