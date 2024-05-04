@@ -3,7 +3,7 @@
     <div class="container px-6 mx-auto">
         <div class="px-4 py-3 mb-8 mt-8 bg-white rounded-lg shadow-md dark:bg-gray-800 flex flex-col my-2">
             <h2 class="mb-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                Add New Supplier
+                Edit Supplier
             </h2>
             <form action="{{ route('admin.UpdateSupplier', ['supplier' => $supplier->id]) }}" method="POST">
                 @csrf
