@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Medicine;
+use App\Models\Customer;
 
 class HomeController extends Controller
 {
@@ -24,10 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $stock_count = Medicine::get()->count();
+        $product_count = Medicine::get()->count();
+        $customer_count = Customer::get()->count();
 
-        return view('pages.dashboard', [
-            'stock_count' => $stock_count,
+        return view('admin.index')->with([
+            'product_count' => $product_count,
+            'customer_count' => $customer_count,
         ]);
     }
 }
