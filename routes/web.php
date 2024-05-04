@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard', 'as' => 'admin.
     Route::get('supplier/{id}/edit', [SupplierController::class, 'edit'])->name('EditSupplier');
     Route::put('UpdateSupplier/{supplier}', [SupplierController::class, 'update'])->name('UpdateSupplier');
     Route::delete('supplier/{id}', [SupplierController::class, 'destroy'])->name('DeleteSupplier');
+
+    //Customer routes
+    Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+    Route::get('/CreateCustomer', [CustomerController::class, 'create'])->name('CreateCustomer');
+    Route::post('/customer', [CustomerController::class, 'store'])->name('customer');
+    Route::get('customer/{id}/edit', [CustomerController::class, 'edit'])->name('EditCustomer');
+    Route::put('UpdateCustomer/{customer}', [CustomerController::class, 'update'])->name('UpdateCustomer');
+    Route::delete('customer/{id}', [CustomerController::class, 'destroy'])->name('DeleteCustomer');
 
     Route::view('/buttons', 'admin.buttons')->name('buttons');
     Route::view('/cards', 'admin.cards')->name('cards');
